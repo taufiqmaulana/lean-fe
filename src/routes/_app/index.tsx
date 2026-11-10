@@ -5,7 +5,7 @@ import { Button } from '@/ui/button'
 import { Card, CardAction, CardDescription, CardHeader, CardTitle } from '@/ui/card'
 import { Page } from '@/ui/page'
 
-export const Route = createFileRoute('/')({
+export const Route = createFileRoute('/_app/')({
   component: Dashboard,
 })
 

@@ -1,11 +1,22 @@
 // Demo data and a fake server. Replace with real API calls (see `api.ts`).
+import type { Session } from '@/lib/auth'
 import type { DataTablePage, DataTableQuery } from '@/ui/data-table'
 
-export const currentUser = {
-  name: 'Demo User',
-  email: 'demo.user@example.com',
-  description: 'Administrator',
-  avatar: '',
+export const demoCredentials = { email: 'demo.user@example.com', password: 'password' }
+
+/** Simulates a login endpoint. */
+export async function mockLogin(email: string, password: string): Promise<Session> {
+  await new Promise((resolve) => setTimeout(resolve, 500))
+  if (
+    email.trim().toLowerCase() !== demoCredentials.email ||
+    password !== demoCredentials.password
+  ) {
+    throw new Error('Invalid email or password.')
+  }
+  return {
+    token: crypto.randomUUID(),
+    user: { name: 'Demo User', email: demoCredentials.email, description: 'Administrator' },
+  }
 }
 
 export type User = {

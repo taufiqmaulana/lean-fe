@@ -6,7 +6,7 @@ import { Button } from '@/ui/button'
 import { createColumns, DataTable } from '@/ui/data-table'
 import { Page } from '@/ui/page'
 
-export const Route = createFileRoute('/users')({
+export const Route = createFileRoute('/_app/users')({
   component: Users,
 })
 

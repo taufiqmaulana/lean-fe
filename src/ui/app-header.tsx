@@ -1,4 +1,3 @@
-import { currentUser } from '@/lib/demo'
 import { NavUser } from '@/ui/nav-user'
 import { Separator } from '@/ui/separator'
 import { SidebarTrigger } from '@/ui/sidebar'
@@ -18,7 +17,7 @@ export function AppHeader() {
           orientation="vertical"
           className="mx-1 data-vertical:h-6 data-vertical:self-auto"
         />
-        <NavUser user={currentUser} />
+        <NavUser />
       </div>
     </header>
   )

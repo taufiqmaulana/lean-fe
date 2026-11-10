@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router'
-import { ChevronDownIcon, UserIcon } from 'lucide-react'
+import { ChevronDownIcon, LogOutIcon, UserIcon } from 'lucide-react'
+import { auth, type User, useAuth } from '@/lib/auth'
 import { Avatar, AvatarFallback, AvatarImage } from '@/ui/avatar'
 import { Button } from '@/ui/button'
 import {
@@ -12,8 +13,6 @@ import {
   DropdownMenuTrigger,
 } from '@/ui/dropdown-menu'
 
-type User = { name: string; email: string; description?: string; avatar?: string }
-
 const initials = (name: string) =>
   name
     .split(/\s+/)
@@ -21,7 +20,7 @@ const initials = (name: string) =>
     .map((part) => part[0]?.toUpperCase())
     .join('')
 
-function UserAvatar({ user, className }: { user: User; className?: string }) {
+export function UserAvatar({ user, className }: { user: User; className?: string }) {
   return (
     <Avatar className={className}>
       {user.avatar && <AvatarImage src={user.avatar} alt={user.name} />}
@@ -31,7 +30,10 @@ function UserAvatar({ user, className }: { user: User; className?: string }) {
 }
 
 /** Header user menu: avatar (+ name and description from `sm` up) opening a profile popup. */
-export function NavUser({ user }: { user: User }) {
+export function NavUser() {
+  const { user } = useAuth()
+  if (!user) return null
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
@@ -65,6 +67,14 @@ export function NavUser({ user }: { user: User }) {
           <DropdownMenuItem render={<Link to="/profile" />}>
             <UserIcon />
             Profile
+          </DropdownMenuItem>
+        </DropdownMenuGroup>
+        <DropdownMenuSeparator />
+        <DropdownMenuGroup>
+          {/* Ending the session re-runs the route guard, which redirects to /login */}
+          <DropdownMenuItem onClick={auth.logout}>
+            <LogOutIcon />
+            Log out
           </DropdownMenuItem>
         </DropdownMenuGroup>
       </DropdownMenuContent>

@@ -3,13 +3,13 @@ import { ConstructionIcon } from 'lucide-react'
 import { Empty, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from '@/ui/empty'
 import { Page } from '@/ui/page'
 
-export const Route = createFileRoute('/settings/security')({
-  component: SecurityPage,
+export const Route = createFileRoute('/_app/settings/general')({
+  component: GeneralPage,
 })
 
-function SecurityPage() {
+function GeneralPage() {
   return (
-    <Page title="Security" description="Password and session settings.">
+    <Page title="General" description="Workspace preferences.">
       <Empty className="border">
         <EmptyHeader>
           <EmptyMedia variant="icon">

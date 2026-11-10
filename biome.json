@@ -17,6 +17,15 @@
   "assist": { "actions": { "source": { "organizeImports": "on" } } },
   "overrides": [
     {
+      "includes": ["src/ui/field.tsx", "src/ui/label.tsx"],
+      "linter": {
+        "rules": {
+          "a11y": { "useSemanticElements": "off", "noLabelWithoutControl": "off" },
+          "suspicious": { "noDoubleEquals": "off", "noArrayIndexKey": "off" }
+        }
+      }
+    },
+    {
       "includes": ["src/ui/sidebar.tsx"],
       "linter": {
         "rules": {

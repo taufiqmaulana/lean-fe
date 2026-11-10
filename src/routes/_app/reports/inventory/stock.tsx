@@ -3,13 +3,13 @@ import { ConstructionIcon } from 'lucide-react'
 import { Empty, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from '@/ui/empty'
 import { Page } from '@/ui/page'
 
-export const Route = createFileRoute('/reports/sales')({
-  component: SalesPage,
+export const Route = createFileRoute('/_app/reports/inventory/stock')({
+  component: StockPage,
 })
 
-function SalesPage() {
+function StockPage() {
   return (
-    <Page title="Sales" description="Sales performance by period.">
+    <Page title="Stock" description="Current stock levels.">
       <Empty className="border">
         <EmptyHeader>
           <EmptyMedia variant="icon">
