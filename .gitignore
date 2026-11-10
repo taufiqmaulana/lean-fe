@@ -1,0 +1,9 @@
+node_modules
+dist
+src/lib/routeTree.gen.ts
+*.local
+
+# local agent skills
+.agents
+.claude
+skills-lock.json
