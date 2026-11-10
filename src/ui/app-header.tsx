@@ -1,3 +1,5 @@
+import { currentUser } from '@/lib/demo'
+import { NavUser } from '@/ui/nav-user'
 import { Separator } from '@/ui/separator'
 import { SidebarTrigger } from '@/ui/sidebar'
 import { ThemeToggle } from '@/ui/theme-toggle'
@@ -12,6 +14,11 @@ export function AppHeader() {
       />
       <div className="ml-auto flex items-center gap-1">
         <ThemeToggle />
+        <Separator
+          orientation="vertical"
+          className="mx-1 data-vertical:h-6 data-vertical:self-auto"
+        />
+        <NavUser user={currentUser} />
       </div>
     </header>
   )

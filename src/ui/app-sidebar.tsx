@@ -1,13 +1,10 @@
 import { Link, useRouterState } from '@tanstack/react-router'
 import { useEffect } from 'react'
 import { app, menu } from '@/lib/app'
-import { currentUser } from '@/lib/demo'
 import { NavMenu } from '@/ui/nav-menu'
-import { NavUser } from '@/ui/nav-user'
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
@@ -44,9 +41,6 @@ export function AppSidebar() {
       <SidebarContent>
         <NavMenu label="Menu" items={menu} />
       </SidebarContent>
-      <SidebarFooter>
-        <NavUser user={currentUser} />
-      </SidebarFooter>
       <SidebarRail />
     </Sidebar>
   )
